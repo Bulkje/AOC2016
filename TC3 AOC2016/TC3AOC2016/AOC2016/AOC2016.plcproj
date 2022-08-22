@@ -17,20 +17,21 @@
     <LibraryReferences>{16c05287-f3bc-4648-bc7c-75ae33281da5}</LibraryReferences>
   </PropertyGroup>
   <ItemGroup>
+    <Compile Include="MAIN\MAIN.TcPOU">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="PlcTask.TcTTO">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="POUs\Common.TcPOU">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="POUs\Day1.TcPOU">
       <SubType>Code</SubType>
     </Compile>
-    <Compile Include="POUs\MAIN.TcPOU">
-      <SubType>Code</SubType>
-    </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="DUTs" />
-    <Folder Include="GVLs" />
-    <Folder Include="VISUs" />
+    <Folder Include="MAIN" />
     <Folder Include="POUs" />
   </ItemGroup>
   <ItemGroup>

@@ -1,0 +1,54 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<TcPlcObject Version="1.1.0.1" ProductVersion="3.1.4024.6">
+  <POU Name="Common" Id="{febeee56-5966-473b-bff5-081a51b8e62c}" SpecialFunc="None">
+    <Declaration><![CDATA[FUNCTION_BLOCK Common
+VAR
+	_sSrcNetId		: T_AmsNetId;
+	_tTimeout		: TIME := DEFAULT_ADS_TIMEOUT;
+END_VAR]]></Declaration>
+    <Implementation>
+      <ST><![CDATA[]]></ST>
+    </Implementation>
+    <Method Name="openFile" Id="{2a8bd7c9-12a9-49a2-a211-1bbde87e8446}">
+      <Declaration><![CDATA[METHOD openFile
+VAR
+	fileOpen : FB_FileOpen;
+	sSrcNetID : T_AmsNetId := '127.0.0.1.1.1';
+END_VAR
+VAR_IN_OUT
+	hFile : UINT;
+END_VAR
+VAR_INPUT
+	sSrcPathName : T_MaxString;
+END_VAR
+VAR_INST
+	stepper : DINT;
+END_VAR]]></Declaration>
+      <Implementation>
+        <ST><![CDATA[CASE stepper OF
+0:
+	fileOpen(bExecute := FALSE);
+	fileOpen(sNetId := sSrcNetId, sPathName := sSrcPathName, 
+                         nMode := FOPEN_MODEREAD OR FOPEN_MODEBINARY, 
+                         ePath := PATH_GENERIC, tTimeout := _tTimeOut, bExecute := TRUE );
+	stepper := stepper + 1;
+1:
+	
+END_CASE]]></ST>
+      </Implementation>
+    </Method>
+    <LineIds Name="Common">
+      <LineId Id="9" Count="0" />
+    </LineIds>
+    <LineIds Name="Common.openFile">
+      <LineId Id="5" Count="0" />
+      <LineId Id="15" Count="0" />
+      <LineId Id="18" Count="0" />
+      <LineId Id="21" Count="0" />
+      <LineId Id="19" Count="0" />
+      <LineId Id="17" Count="0" />
+      <LineId Id="25" Count="2" />
+      <LineId Id="16" Count="0" />
+    </LineIds>
+  </POU>
+</TcPlcObject>
